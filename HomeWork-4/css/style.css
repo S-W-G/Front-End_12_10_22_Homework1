@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.parent {
+  border: 3px solid green;
+  width: 95vw;
+  height: 95vh;
+}
+body {
+  margin: 2vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.parent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.red {
+  border: 3px solid red;
+  display: flex;
+  width: 90%;
+}
+.red:nth-child(1) {
+  justify-content: space-around;
+  align-items: center;
+  height: 20%;
+}
+.red:nth-child(2) {
+  height: 10%;
+  justify-content: space-around;
+  align-items: center;
+}
+.red:nth-child(3) {
+  height: 40%;
+  justify-content: space-around;
+  align-items: center;
+}
+.red:nth-child(4) {
+  height: 20%;
+  justify-content: space-around;
+  align-items: center;
+}
+.blue {
+  border: 3px solid blue;
+  height: 90%;
+}
+.red:nth-child(1) .blue:nth-child(1),
+.red:nth-child(1) .blue:nth-child(3) {
+  width: 25%;
+}
+.red:nth-child(1) .blue:nth-child(2) {
+  width: 40%;
+}
+.yellow {
+  border: 3px solid yellow;
+  width: 90%;
+  height: 45%;
+}
+.red:nth-child(1) .blue:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.red:nth-child(2) .blue:nth-child(1),
+.red:nth-child(2) .blue:nth-child(4) {
+  width: 20%;
+}
+.red:nth-child(2) .blue:nth-child(2),
+.red:nth-child(2) .blue:nth-child(3) {
+  width: 25%;
+}
+.red:nth-child(3) .blue:nth-child(1) {
+  width: 25%;
+}
+.red:nth-child(3) .blue:nth-child(2) {
+  width: 65%;
+}
+.red:nth-child(3) .blue:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.red:nth-child(3) .blue:nth-child(2) .yellow:nth-child(1) {
+  height: 70%;
+}
+.red:nth-child(3) .blue:nth-child(2) .yellow:nth-child(2) {
+  height: 20%;
+}
+.red:nth-child(4) {
+  flex-direction: row-reverse;
+}
+.red:nth-child(4) .blue:nth-child(1),
+.red:nth-child(4) .blue:nth-child(3) {
+  width: 25%;
+}
+.red:nth-child(4) .blue:nth-child(2) {
+  width: 40%;
+}
+.red:nth-child(4) .blue:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
