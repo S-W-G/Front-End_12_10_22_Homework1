@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+}
+.form {
+  margin: auto;
+  width: 90vw;
+}
+
+/* FORM HEADER SECTION */
+
+.form__header {
+  display: flex;
+  align-items: center;
+  height: 6vh;
+  background-color: rgb(41, 172, 43);
+}
+.form__header select {
+  background-color: rgb(41, 172, 43);
+  border: none;
+  margin: 0 6vw;
+}
+.form__header h3 {
+  margin-left: 1vw;
+}
+
+/* FORM BODY SECTION */
+
+.form__body > div {
+  width: 50%;
+}
+.form__body {
+  display: flex;
+}
+.form__item {
+  display: flex;
+  justify-content: space-between;
+  margin: 3vh 1vw;
+}
+.form__item span {
+  color: crimson;
+  margin-left: 0.5vw;
+}
+.form__item input[type="text"] {
+  width: 35%;
+  margin-right: 35%;
+}
+textarea[name="textarea_top"] {
+  margin-right: 35%;
+  resize: none;
+}
+.form__item select {
+  width: 35.6%;
+  margin-right: 35%;
+}
+.form__webItem > div,
+select,
+li,
+input {
+  font-weight: 300;
+}
+.form__item div + input[class="w-50"] {
+  width: 17.5%;
+  margin-right: 52.5%;
+}
+.form__web {
+  width: 70.5%;
+  display: flex;
+  flex-direction: column;
+}
+.form__webItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1vh;
+  margin-right: 23%;
+}
+.form__question {
+  width: 13vw;
+}
+.form__list {
+  list-style: none;
+  margin-right: 15vw;
+  width: 10vw;
+}
+
+textarea[name="textarea"] {
+  margin-right: 22.5%;
+  resize: none;
+}
+
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 1px greenyellow;
+}
+/*FORM FOOTER SECTION */
+
+.form__footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  background: rgb(223, 218, 218);
+}
+.form__footer > input {
+  width: 8%;
+  padding: 0.5vh 0.5vw;
+  color: aliceblue;
+  background: rgb(41, 172, 43);
+  border: 1px solid rgb(68, 114, 0);
+  margin-left: 0.2vw;
+  cursor: pointer;
+  text-transform: capitalize;
+}
