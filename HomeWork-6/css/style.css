@@ -19,7 +19,7 @@ header {
 h1 {
   font-family: "Cinzel Decorative", cursive;
   text-align: center;
-  font-size: 60px;
+  font-size: 10vh;
 }
 .banner__body {
   height: 60vh;
@@ -34,9 +34,9 @@ h1 {
   align-items: center;
 }
 .banner__item {
-  padding: 15px;
-  margin: 12.5% 1.5% 0;
-  width: 23vw;
+  padding: 1vh 1vw;
+  margin: 12.5% 1% 0;
+  width: 20vw;
   height: 26vh;
   border-radius: 2%;
   background: rgba(61, 60, 60, 0.4);
@@ -46,17 +46,17 @@ h1 {
 h2 {
   font-family: "Cinzel Decorative", cursive;
   margin-top: 3vh;
-  padding-right: 14px;
-  font-size: 15px;
+  padding-right: 1vw;
+  font-size: 2vh;
   text-align: end;
 }
 p {
   margin-top: 0.5vh;
-  font-size: 10px;
+  font-size: 1.5vh;
   text-align: justify;
 }
 .fa-solid {
-  margin-right: 10px;
+  margin-right: 1.5vw;
 }
 footer {
   display: flex;
@@ -64,32 +64,39 @@ footer {
   color: black;
 }
 .footer__text {
-  width: 40%;
+  width: 35%;
   height: 80%;
-  margin: 5vh;
+  margin: 5vh 0 0 5vw;
 }
 h3 {
   font-family: "Cinzel Decorative", cursive;
+  font-size: 2.5vh;
+  margin: 2vh 0;
 }
 .footer__info {
-  font-size: 12px;
+  font-size: 1.5vh;
   width: 25%;
   height: 80%;
-  margin: 5vh 0 0 10vw;
+  margin: 5vh 0 0 11vw;
 }
 h4 {
-  margin: 10px;
+  margin: 3vh 0 0 2vw;
 }
 ul {
   list-style: none;
+  margin: 4vh 3vw 0 0;
 }
 li {
-  margin-top: 15px;
+  margin-top: 2vh;
 }
 .fa-brands {
-  font-size: 20px;
+  font-size: 3.5vh;
+  color: rgb(192, 141, 0);
 }
 a {
   text-decoration: none;
   color: black;
+}
+a:hover {
+  color: rgb(191, 150, 0);
 }
