@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Raleway", sans-serif;
+}
+body {
+  position: relative;
+}
+header {
+  position: absolute;
+  height: 12vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10vh;
+  background-color: rgba(161, 157, 157, 0.5);
+}
+h1 {
+  font-family: "Cinzel Decorative", cursive;
+  text-align: center;
+  font-size: 60px;
+}
+.banner__body {
+  height: 60vh;
+  width: 100vw;
+  background: url(../img/4K-Train-Rail-Desktop-Wallpaper-For-PC.jpg);
+  background-size: 100% 165%;
+  background-repeat: no-repeat;
+}
+.banner__body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.banner__item {
+  padding: 15px;
+  margin: 12.5% 1.5% 0;
+  width: 23vw;
+  height: 26vh;
+  border-radius: 2%;
+  background: rgba(61, 60, 60, 0.4);
+  box-shadow: 2px 2px 2px black;
+  color: rgba(211, 213, 215, 0.9);
+}
+h2 {
+  font-family: "Cinzel Decorative", cursive;
+  margin-top: 3vh;
+  padding-right: 14px;
+  font-size: 15px;
+  text-align: end;
+}
+p {
+  margin-top: 0.5vh;
+  font-size: 10px;
+  text-align: justify;
+}
+.fa-solid {
+  margin-right: 10px;
+}
+footer {
+  display: flex;
+  justify-content: center;
+  color: black;
+}
+.footer__text {
+  width: 40%;
+  height: 80%;
+  margin: 5vh;
+}
+h3 {
+  font-family: "Cinzel Decorative", cursive;
+}
+.footer__info {
+  font-size: 12px;
+  width: 25%;
+  height: 80%;
+  margin: 5vh 0 0 10vw;
+}
+h4 {
+  margin: 10px;
+}
+ul {
+  list-style: none;
+}
+li {
+  margin-top: 15px;
+}
+.fa-brands {
+  font-size: 20px;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
