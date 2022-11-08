@@ -5,6 +5,7 @@
 }
 body {
   position: relative;
+  overflow: hidden;
 }
 header {
   position: absolute;
@@ -54,6 +55,7 @@ p {
   margin-top: 0.5vh;
   font-size: 1.5vh;
   text-align: justify;
+  text-align-last: right;
 }
 .fa-solid {
   margin-right: 1.5vw;
@@ -100,3 +102,4 @@ a {
 a:hover {
   color: rgb(191, 150, 0);
 }
+
