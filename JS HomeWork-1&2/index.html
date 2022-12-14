@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 1,2</title>
+  </head>
+  <body>
+    <script>
+      // 1. По координатам двух точек, которые вводит пользователь, определить уравнение прямой, проходящей через эти точки.
+      //     Общий вид уравнения: y = kx + b; где k = (y1 - y2) / (x1 - x2), b = y2 - k*x2.
+
+      var x1 = +prompt("Enter x1?");
+      var x2 = +prompt("Enter x2?");
+      var y1 = +prompt("Enter y1?");
+      var y2 = +prompt("Enter y2?");
+      var k = (y1 - y2) / (x1 - x2);
+      var b = y2 - k * x2;
+      alert(`y = ${k}x+${b}`);
+
+      //     2. Обменять значения двух переменных, используя третью (буферную) переменную.
+
+      //    var a = 1;
+      //    var b = 2;
+      //    var c;
+      //    c = a = 2;
+      //    c = b = 1;
+      //    console.log(a, b);
+
+      //     3. Объявите две переменные: admin и name. Запишите в name строку "Василий". Замените значение из name в admin. Выведите admin.
+
+      // var admin;
+      // var name = 'Vasyl';
+      // admin = name;
+      // document.write(admin);
+
+      //     4. Получить от пользователя данные о пользователе: имя, фамилию, возраст. Обработать их и вывести на экран.
+
+      // var name = prompt("What is your name?");
+      // var surname = prompt("What is your surname?");
+      // var age = prompt("What is your age?");
+      // alert(
+      //   `Your name is ${name}, your surname is ${surname} and your age is ${age}!`
+      // );
+
+      // 5. Запросите у пользователя его возраст, после чего выведите на экран модальное окно с вопросом: "Ваш возраст ...(введеное пользователем число) лет?". Далее в зависимости от выбора пользователя выводится модальное окно с информацией true или false.
+
+      // var age = prompt("What is your age?");
+      // var result = confirm('Your age is '+ age +' years?');
+      // alert(result);
+
+      // ______________________________________________HOMEWORK #2________________________________________________
+
+      //  1. Среди трех чисел найти среднее арифметическое. Если среди чисел есть равные, вывести сообщение "Ошибка". Числа принять от пользователя.
+
+      // var num1 = +prompt("Enter the 1st num!");
+      // var num2 = +prompt("Enter the 2nd num!");
+      // var num3 = +prompt("Enter the 3rd num!");
+      // if (num1 !== num2 && num1 !== num3 && num2 !== num1 && num2 !== num3) {
+      //   alert(
+      //     "Your arithmetic mean is " + (num1 + num2 + num3) / 3 + " !"
+      //   );
+      // } else {
+      //   alert("Error!!!Try again!!!");
+      // }
+
+      //   3. Определить какое из трех, введенных пользователем, чисел максимальное и вывести его на экран.
+
+      //   var num1 = +prompt('Enter the 1st num!');
+      //   var num2 = +prompt('Enter the 2nd num!');
+      //   var num3 = +prompt('Enter the 3rd num!');
+
+      //   if (num1 > num2 && num1 > num3){
+      //       document.write(num1);
+      //   } else if (num2 > num1 && num2 > num3){
+      //       document.write(num2);
+      //   } else if (num3 > num1 && num3 > num2){
+      //       document.write(num3);
+      //   } else{
+      //       alert('Try again with different number values!');
+      //   }
+    </script>
+  </body>
+</html>
