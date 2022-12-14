@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.main__title {
+  font-family: "Merriweather", serif;
+  color: #003a5d;
+  font-weight: 300;
+  font-size: 50px;
+  line-height: 120%;
+}
+.offices {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-row-gap: 70px;
+  padding: 50px 0 0;
+}
+.offices__item {
+  display: flex;
+}
+.offices__item img {
+  margin-right: 40px;
+}
+.city__name {
+  margin: 5px auto;
+  font-family: Merriweather;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 120%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.03em;
+  color: #003a5d;
+}
+.city__address a,
+.phones a {
+  margin: 5px auto;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 140%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.04em;
+  color: #81859c;
+  text-decoration: none;
+}
+
+@media screen and (max-width:699px) {
+ .container{
+  min-height: 100vh;
+ }
+  .main__title {
+  font-size: 30px;
+  line-height: 120%;
+}
+.offices {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 5px;
+  padding: 25px 0 0;
+}
+.offices__item img {
+  margin-right: 20px;
+}
+.city__address a,
+.phones a {
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+}
