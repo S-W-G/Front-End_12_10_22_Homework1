@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // ДЗ № 3
+      // *********************************************************************************
+      // 2. Построить прямоугольный треугольник состоящий из символа "*".
+      //After examining comment following section!
+      for (let i = 0; i < 10; i++) {
+        for (let j = -1; j < i; j++) {
+          document.write("* ");
+        }
+        document.write("<br/>");
+      }
+
+      // for (let i = 10; i > 0; i--) {
+      //   for (let j = 0; j < i; j++) {
+      //     document.write("* ");
+      //   }
+      //   document.write("<br/>");
+      // }
+
+      //     4. Дано два числа A и B где (A<B).
+      // Выведите на экран суму всех чисел расположенных в числовом промежутке от А до В.
+      // Выведите на экран все нечетные значения, расположенные в числовом промежутке от А до В.
+
+      //Uncomment following section!
+      //  let num1 = +prompt('num1?');
+      //  let num2 = +prompt('num2?');
+      // for(num1;num1 < num2; num1++){
+      //     if(num1%2==0){
+      //         continue;
+      //     }else{
+      //         document.write(num1 + "<br>");
+      //     }
+      // }
+      //Uncomment following section!
+      //  let num1 = +prompt('num1?');
+      //  let num2 = +prompt('num2?');
+      //  let sum=0;
+      //  if(num1 < num2){
+      //     for(num1+1;num1 <= num2; num1++){
+      //      sum+=num1;
+      //  }
+      //  document.write(sum)
+      //  } else {
+      //      alert('Error! Num2 must be bigger than Num1!Try again!!!')
+      //  };
+
+      // 5. Вывести на экран ряд чисел Фибоначчи, состоящий из n элементов (n принять от пользователя).
+      //    Числа Фибоначчи – это элементы числовой последовательности, в которой каждое последующее число равно сумме двух предыдущих.
+      //Uncomment following section!
+      //     let integer = +prompt('Please type any integer and press \'OK\'!');
+      //     let num1 = 1;
+      //     let num2 = 1;
+      //     let num3;
+      // for (i = 0; i < integer; i++){
+      //     num3 = num1 + num2;
+      //     num1 = num2;
+      //     num2 = num3;
+      //     document.write(num1);
+      // }
+      // *********************************************************************************
+
+      // ДЗ № 4
+      // *********************************************************************************
+      // 1. Сделать собственные примеры методов применяемых для массивов.
+      // JOIN
+      // const names = ['John','Mark','Henry','Will','Joe','Sandra','Bob'];
+      // console.log(names.join('-'));
+      // console.log(names.join('-_(*-*)_-'));
+
+      // CONCAT
+      // let name = 'Serhii';
+      // let surname = ' Hlukhenkyi';
+      // document.write(`Hi, I am ${name.concat(surname)}, nice to meet you!`);
+
+      // SPLICE
+      // let heroesList = [null,'Hawkeye','Hulk','IronMan','Black Panther','Thor','DeadPool','Vision','Scarlet Witch'];
+      // let userHero = prompt('Choose you favorite superhero:\n1:Hawkeye\n2:Hulk\n3:IronMan\n4:Black Panther\n5:Thor\n6:DeadPool\n7:Vision\n8:Scarlet Witch\n','Enter heroe\'s number');
+      // if (userHero > heroesList.length-1||userHero == 0){
+      //     alert('Sorry there is no hero under such number')
+      // } else{
+      //     let favHero = alert(`Wow! ${heroesList.splice(userHero, 1)} is a badass, great choice!`);
+      // }
+
+      // REVERSE
+      // function reverseString(str) {
+      //     let splitString = str.split("");
+      //     let reverseArray = splitString.reverse();
+      //     let joinArray = reverseArray.join("");
+      //     return joinArray;
+      // }
+
+      // SLICE
+      // let arr = [null,'Bentley','Mazda','Ferrari','Tesla','BMW','Yamaha','Suzuki','Lexus'];
+      // let num = +prompt('Here is brands list:\n1:Bentley\n2:Mazda\n3:Ferrari\n4:Tesla\n5:BMW\n6:Yamaha\n7:Suzuki\n8:Lexus\n Choose brand that not fit');
+      // let brand = arr.slice(num,num+1);
+      // if(brand != 'Yamaha'){
+      //     alert('Wrong.Try again!')
+      // } else {
+      //     alert('Yep, because '+brand+ ' is not producing cars!');
+      // }
+
+      // SORT
+      // let nums = [ 9,4,45,1,5,2,7,3,8,6 ];
+      // nums.sort(function(a, b) { return a - b; });
+      // alert(nums);
+
+      // POP
+      // let arr1 = [1,2,3,4,5,6,7,8,9,'i am string'];
+      // let arr2 = ['Some text','more text','and more',10];
+      // let str = arr1.pop();
+      // let num = arr2.pop();
+      // arr1.push(num);
+      // arr2.push(str);
+      // console.log(arr1,arr2);
+
+      // UNSHIFT
+      // let rockBands = ['Linkin Park','Rammstein','Guns & Roses']
+      // let moreBands = rockBands.unshift('Breaking Benjamin','Thirty Seconds to Mars');
+      // console.log(rockBands);
+      // SHIFT
+      // let rockBands = ['Linkin Park','Rammstein','Guns & Roses']
+      // let firstBand = rockBands.shift();
+      // console.log(firstBand);
+
+      // PUSH
+      //    let favBook = prompt('What is your favorite book?');
+      //    let book = [];
+      //    book.push(favBook);
+      //    document.write(`Your favorite book is " ${book} "! And mine is " I am a Legend " by R. Mettison.`);
+
+      // 2. Создать функцию для нахождения минимального и максимального элемента массива getMinAndMax(array).
+      //      Результат должен выводиться в консоль.
+      //Uncomment following section!
+      //   let maxValue = -Infinity;
+      //   let minValue = Infinity;
+      // function getMinAndMax(array){
+      // for(i=0; i<arguments.length;i++){
+      //     if (arguments[i]>maxValue){
+      //         maxValue = arguments[i];
+      //     }
+      // }
+      // console.log(`Max num:${maxValue}`);
+      // for(i=0; i<arguments.length;i++){
+      //     if (arguments[i]<minValue){
+      //         minValue = arguments[i];
+      //     }
+      // }
+      // console.log(`Min num:${minValue}`);
+      // }
+      // getMinAndMax(1,34,345,43,5,234,24,1,23,1,45,346,67,568,67,6,5634,64,867,9,66,346,34);
+      //     3. Определить элементы массива и вывести их значения, индексы которых лежит в указанном пределе. Предел вводит пользователь.
+      //Uncomment following section!
+      // let arr = [1,2,5,3,12,2,23,42,34,58,99,"Mercedes", "Audi", "BMW"];
+      // let fromElement = +prompt('From which element?');
+      // let toElement = +prompt('to which element?');
+      // let result = arr.slice(fromElement,toElement);
+      // console.log(result);
+      //     4. Отсортировать массив на 10 чисел в порядке возростания. Значения принимаются от пользователя. Сортировка осушествляется методом sort().
+      //Uncomment following section!
+      //       let nums;
+      //       let arr = []
+      // for (i = 0; i<10; i++){
+      //     nums = +prompt('Enter the number');
+      //     arr.push(nums);
+      //     arr.sort(function(a, b) { return a - b; })
+      // }
+      // console.log(`Here are you sorted numbers: ${arr}`);
+
+      //     5. Создать программу, выполняющую вставку элемента в массив после элемента, значение которого укажет пользователь.
+      //Uncomment following section!
+      // let arr = [1,3,5,7,57,76,75,567,56,567,3,45,235,346];
+      // let whatElement = prompt('What element do you want to insert?');
+      // let afterElement = prompt('After which element do you want to insert?',"Enter the number");
+      // let result = arr.splice(afterElement,0,whatElement);
+      // console.log(arr);
+      //     6. Необходимо получить предпоследний элемент из массива month и вывести его на экран.
+      //   var month = [
+      //     "Январь",
+      //     "Февраль",
+      //     "Март",
+      //     "Апрель",
+      //     "Май",
+      //     "Июнь",
+      //     "Июль",
+      //     "Август",
+      //     "Сентябрь",
+      //     "Октябрь",
+      //     "Ноябрь",
+      //     "Декабрь",
+      //   ];
+      // // First option
+      //       let arr1 = month.splice(month.length - 2, 1);
+      //       console.log(arr1);
+      // // Second option
+      //       let arr2 = month.slice(month.length - 2, month.length - 1);
+      //       console.log(arr2);
+      // //Third option
+      //       for (i = 0; i != month.length - 2; i++) {}
+      //       console.log(month[i]);
+    </script>
+  </body>
+</html>
