@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body *{
+        width: 250px;
+        margin: auto;
+        font-size: 18px;
+      }
+      button{
+        line-height: 25px;
+      }
+      select{
+        height: 30px;
+        text-transform: capitalize;
+      }
+    </style>
+  </head>
+  <body style="display: flex; flex-direction: column;">
+    <input type="text" id="inp" /> <button id="addEl">Add Element</button>
+    <select name="" id="dropList">
+      <option value="option 1">option 1</option>
+      <option value="option 2">option 2</option>
+      <option value="option 3">option 3</option>
+      <option value="option 4">option 4</option>
+    </select>
+    <button id="getFirst">First</button>
+    <button id="getLast">Last</button>
+    <button id="getNext">Next</button>
+    <button id="getPrevious">Previous</button>
+    <script type="text/javascript">
+  // Homework - 5
+
+      const dropList = document.getElementById('dropList')
+      const inp = document.getElementById("inp");
+      const getFirstEl = document.getElementById("getFirst");
+      const getLastEl = document.getElementById("getLast");
+      const getNextEl = document.getElementById("getNext");
+      const getPrevEl = document.getElementById("getPrevious");
+      const addElement = document.getElementById("addEl");
+      const selectedOption = dropList.options[dropList.selectedIndex];
+      getFirstEl.addEventListener("click", function () {
+        dropList.firstElementChild.selected = true;
+      });
+      getLastEl.addEventListener("click", function () {
+        dropList.lastElementChild.selected = true;
+      });
+      getNextEl.addEventListener("click", function () {
+        for (i = 0;i <= dropList.children.length; i++) {
+          if (dropList.children[i].selected === true) {
+            dropList.children[i].nextElementSibling.selected = true;
+          break;
+          } 
+        }
+      });
+      getPrevEl.addEventListener("click", function () {
+        for (i = 0;i <= dropList.children.length; i++) {
+          if (dropList.children[i].selected === true) {
+            dropList.children[i].previousElementSibling.selected = true;
+            break;
+          }
+        }
+      });
+      addElement.addEventListener("click", function () {
+        if (inp.value != "") {
+          const newOption = document.createElement("option");
+          newOption.innerHTML = inp.value;
+          dropList.append(newOption);
+          inp.value = "";
+        }
+      });
+
+
+      
+      // HomeWork - 6
+
+      // Создайте функцию, которая будет принимать в себя массив объектов-сотрудников, и каждому из объектов
+      //        будет добавлять новое свойство "salary", хранящее зарплату сотрудника.
+      //        Зарплата расчитывается, исходя из значения свойства "occupation" следующим образом:
+      //            • "director" — 3000;
+      //            • "manager" — 1500;
+      //            • "programmer" — 2000;
+      //            • для остальных значений — 1000.
+      //        После выполнения функции — вывести информацию о сотрудниках.
+
+      // const employeesArr = [];
+      // const employeesQuantity = +prompt("Enter employees quantity", 1);
+      // let personObj = {};
+      // for (i = 0; i < employeesQuantity; i++) {
+      //   personObj.name = prompt("Employee name?");
+      //   personObj.surname = prompt("Employee surname?");
+      //   personObj.age = prompt("Employee age?");
+      //   personObj.occupation = prompt("Employee occupation?");
+      //   employeesArr.push(personObj);
+      // }
+      // function addSalary() {
+      //   for (i = 0; i < employeesArr.length; i++) {
+      //     switch (personObj.occupation) {
+      //       case "director":
+      //         personObj.salary = 3000;
+      //         break;
+      //       case "manager":
+      //         personObj.salary = 1500;
+      //         break;
+      //       case "programmer":
+      //         personObj.salary = 2000;
+      //         break;
+      //       case null || "":
+      //         personObj.salary =
+      //           "Cannot display salary due to uknown occupation";
+      //         break;
+      //       default:
+      //         personObj.salary = 1000;
+      //     }
+      //   }
+      // }
+      // addSalary();
+      // personObj.showInfo = function () {
+      //   document.write(
+      //     `Name - ${this.name} <br> Surname - ${this.surname} <br> Age - ${this.age} <br> Occupation - ${this.occupation} <br> Salary - ${this.salary}<br>`
+      //   );
+      // };
+      // for (i = 0; i < employeesArr.length; i++) {
+      //   employeesArr[i].showInfo();
+      // }
+    </script>
+  </body>
+</html>
