@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <form action="" id="logInModal">
+      <div class="form__btns">
+        <button type="button" id="signUpBtn">sign up</button
+        ><button type="button" id="logInBtn">log in</button>
+      </div>
+      <div class="form__greeting"><h1>welcome back!</h1></div>
+      <div class="input__fields">
+        <input type="email" placeholder="Email Address*" id="inp" />
+        <input type="password" placeholder="Password*" id="inp" />
+      </div>
+      <div class="forgot_pass">
+        <a href="#" title="restore password" target="_blank"
+          >forgot password?</a
+        >
+      </div>
+      <button type="button" class="action__btn">log in</button>
+    </form>
+
+    <form action="" id="signUpModal">
+      <div class="form__btns">
+        <button type="button" id="signUpBtn">sign up</button
+        ><button type="button" id="logInBtn">log in</button>
+      </div>
+      <div class="form__greeting"><h1>sign up for free!</h1></div>
+      <div class="input__fields">
+        <div class="signUp">
+          <input
+            type="text"
+            placeholder="First Name*"
+            class="signUp__inp"
+          /><input type="text" placeholder="Last Name*" class="signUp__inp" />
+        </div>
+        <input type="email" placeholder="Email Address*" id="inp" />
+        <input type="password" placeholder="Set a Password*" id="inp" />
+      </div>
+
+      <button type="button" class="action__btn">sign up</button>
+    </form>
+
+    <script>
+      const signUpBtn = document.querySelector("#signUpBtn");
+      const logInBtn = document.querySelector("#logInBtn");
+      const signUpModal = document.querySelector("#signUpModal");
+      const logInModal = document.querySelector("#logInModal");
+
+      logInModal.logInBtn.disabled = true;
+      logInModal.logInBtn.style.background = "grey";
+      logInModal.signUpBtn.addEventListener("click", showSignUpModal);
+      function showSignUpModal() {
+        signUpModal.classList.toggle("show");
+        signUpModal.signUpBtn.style.background = "grey";
+        signUpModal.signUpBtn.disabled = true;
+      }
+      signUpModal.logInBtn.addEventListener("click", showLogInModal);
+      function showLogInModal() {
+        signUpModal.classList.toggle("show");
+      }
+    </script>
+  </body>
+</html>

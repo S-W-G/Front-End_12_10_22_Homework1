@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.fbfield {
+  display: flex;
+  background: url(../img/photo-1556056504-5c7696c4c28d.jfif);
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: auto;
+  width: 60vw;
+  height: 60vh;
+}
+.polygon1,
+.polygon2 {
+  width: 50%;
+  height: 100%;
+  position: relative;
+}
+.gate1__score {
+  left: 100px;
+}
+.gate2__score {
+  right: 100px;
+}
+.gate1__score,
+.gate2__score {
+  top: 35px;
+  position: absolute;
+  font-size: 30px;
+  color: aliceblue;
+  background: black;
+}
+img {
+  background-color: rgba(0, 0, 0, 0);
+  width: 50px;
+  position: absolute;
+  left: 48.5%;
+  top: 27%;
+  z-index: 10;
+}
+.gate1 {
+  width: 100px;
+  height: 200px;
+  border: 10px solid white;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+.gate2 {
+  width: 100px;
+  height: 200px;
+  border: 10px solid white;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+

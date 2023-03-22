@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Tilt Neon", cursive;
+      }
+      .container {
+        width: 100%;
+        min-height: 100%;
+        background: rgb(204, 204, 204);
+      }
+      .header {
+        width: 20%;
+        padding: 25px 0;
+        margin: 0px auto;
+      }
+      .post-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 30px;
+        width: 80%;
+        margin: auto;
+        padding: 15px 0;
+      }
+      .post-grid__item {
+        text-align: center;
+        padding: 50px 25px;
+        border: 1px solid transparent;
+        border-radius: 25px;
+        background: antiquewhite;
+      }
+      .post-grid__img {
+        width: 85%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>Enjoy the latest posts</h1>
+      </header>
+      <div class="post-grid"></div>
+    </div>
+
+    <script>
+      const grid = document.querySelector(".post-grid");
+      let posts;
+      fetch("https://jsonplaceholder.typicode.com/posts")
+        .then((response) => response.json())
+        .then((json) => (posts = json));
+      setTimeout(function () {
+        posts.slice(0, 30).forEach(function (el) {
+          let html = `<div class="post-grid__item">
+        <img src="img/user-avatar.png" alt="user-avatar" class="post-grid__img">
+        <div class="post-grid__title">${el.title}</div>
+        <div class="post-grid__body">${el.body}</div>
+    </div>`;
+          grid.insertAdjacentHTML("beforeend", html);
+        });
+      }, 900);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currency-converter</title>
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap");
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Tilt Neon", cursive;
+    }
+    .wrapper {
+      width: 50%;
+      margin: 50px auto;
+      text-align: center;
+      background: #00b1d9;
+      border: 2px solid black;
+      border-radius: 5px 20px 5px;
+    }
+    .container *,
+    .container {
+      display: flex;
+      justify-content: center;
+    }
+    .container {
+      padding: 15px 10px;
+      flex-direction: column;
+    }
+    .header__date {
+      padding: 10px;
+    }
+    .grid {
+      height: 0px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      visibility: hidden;
+      opacity: 0;
+    }
+    @media (max-width: 1380px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .show-grid {
+      height: fit-content;
+      visibility: visible;
+      opacity: 1;
+    }
+    .grid__item {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px;
+      margin: 10px;
+      border: 1px solid black;
+      background: rgb(252, 243, 81);
+    }
+    @media (max-width: 767px) {
+      .wrapper {
+        width: 80%;
+      }
+      .header__date {
+        font-size: 18px;
+      }
+      .grid__item {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        font-size: 14px;
+        padding: 10px;
+        margin: 5px;
+      }
+      .grid__item .grid__txt,
+      .grid__item .grid__rate,
+      .grid__item .grid__cc {
+        width: 100%;
+        text-align: center;
+        border: 1px solid black;
+      }
+      .wrapper .c-list {
+        width: 90%;
+        font-size: 16px;
+        padding: 10px;
+      }
+    }
+    .grid__txt,
+    .grid__rate {
+      width: 40%;
+      text-align: left;
+    }
+    #toggleBtn {
+      background: none;
+      border: none;
+      align-items: center;
+      margin: 10px;
+    }
+    img {
+      width: 50px;
+    }
+    button:hover {
+      cursor: pointer;
+    }
+    #input {
+      height: 50px;
+      order: -2;
+      padding: 15px 5px;
+      border: none;
+      border-radius: 5px;
+    }
+    .select {
+      text-align: center;
+      margin: 5px 0;
+      width: fit-content;
+      border-radius: 10px;
+    }
+    @media (max-width: 1200px) {
+      .header__date {
+        font-size: 20px;
+      }
+    }
+    .result {
+      height: 50px;
+      min-width: 100%;
+      font-size: 14px;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 15px 5px;
+      background: #fff;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .toggle {
+      order: -1;
+    }
+    .toggle2 {
+      order: 5;
+    }
+    .c-list {
+      width: 60%;
+      padding: 15px;
+      margin: 20px 0 5px;
+      background: rgb(252, 243, 81);
+      border: 1px solid black;
+      border-radius: 5px;
+    }
+  </style>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header__date"></h1>
+      </header>
+      <div class="container">
+        <input type="text" id="input" placeholder="Скільки бажаєте обміняти?" />
+        <select class="select"></select>
+        <button id="toggleBtn">
+          <img
+            src="img/refresh.png"
+            alt="toggle currencies"
+            title="Переставити"
+          />
+        </button>
+        <div class="result"></div>
+      </div>
+      <button class="c-list">Повний список валют</button>
+      <div class="grid"></div>
+    </div>
+    <script>
+      const header = document.querySelector(".header__date");
+      const grid = document.querySelector(".grid");
+      const select = document.querySelector(".select");
+      const inp = document.querySelector("#input");
+      const result = document.querySelector(".result");
+      const button = document.getElementById("toggleBtn");
+      const currenciesList = document.querySelector(".c-list");
+      let data;
+      let currency1 = 1;
+      let currency2 = 1;
+      fetch("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json")
+        .then((response) => response.json())
+        .then((json) => (data = json));
+
+      setTimeout(function () {
+        data.forEach(function (el) {
+          let option = document.createElement("option");
+          option.innerHTML = el.cc;
+          select.appendChild(option);
+          let html = `
+      <div class="grid__item">
+          <div class="grid__txt">${el.txt}</div>
+          <div class="grid__rate">${el.rate}</div>
+          <div class="grid__cc">${el.cc}</div>
+      </div>`;
+          grid.insertAdjacentHTML("beforeend", html);
+        });
+        const select2 = select.cloneNode(true);
+        select2.id = "sel2";
+        result.insertAdjacentElement("afterend", select2);
+        select2.addEventListener("change", selectSecondCurrency);
+        header.innerHTML = "Наступне оновлення курсу: " + data[0].exchangedate;
+      }, 900);
+
+      select.addEventListener("change", selectFirstCurrency);
+      button.addEventListener("click", toggleCurrencies);
+      currenciesList.addEventListener("click", showCurrenciesList);
+
+      function showCurrenciesList() {
+        grid.classList.toggle("show-grid");
+      }
+
+      function toggleCurrencies() {
+        select.classList.toggle("toggle2");
+        sel2.classList.toggle("toggle");
+        calcResult();
+      }
+
+      function selectFirstCurrency() {
+        data.forEach(function (el) {
+          if (select.value === el.cc) {
+            currency1 = el.rate;
+            calcResult();
+          }
+        });
+      }
+      function selectSecondCurrency() {
+        let sel2 = document.getElementById("sel2");
+        data.forEach(function (el) {
+          if (sel2.value === el.cc) {
+            currency2 = el.rate;
+            calcResult();
+          }
+        });
+      }
+
+      inp.addEventListener("input", calcResult);
+
+      function calcResult() {
+        if (select.classList.contains("toggle2")) {
+          result.innerText = `Ви отримаєте: ${(
+            (currency2 / currency1) *
+            inp.value
+          ).toFixed(2)}`;
+        } else if (sel2.classList.contains("toggle")) {
+          result.innerText = `Ви отримаєте: ${(
+            (currency1 / currency2) *
+            inp.value
+          ).toFixed(2)}`;
+        } else {
+          result.innerText = `Ви отримаєте: ${(
+            (currency1 / currency2) *
+            inp.value
+          ).toFixed(2)}`;
+        }
+      }
+    </script>
+  </body>
+</html>

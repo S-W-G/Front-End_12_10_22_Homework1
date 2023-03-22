@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-transform: capitalize;
+  font-family: sans-serif;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.show {
+  display: flex !important;
+}
+
+#signUpModal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: none;
+}
+
+form {
+  width: 600px;
+  height: 500px;
+  margin: auto;
+  background: rgb(4, 2, 27);
+  box-shadow: 1px 1px 1px rgb(0, 89, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+form .form__btns {
+  width: 90%;
+  height: 10%;
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form .form__btns button {
+  color: white;
+  background: rgb(0, 198, 142);
+  width: 50%;
+  height: 100%;
+}
+form .form__greeting {
+  color: white;
+}
+form .input__fields {
+  width: 90%;
+  height: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+form .input__fields .signUp {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+form .input__fields .signUp .signUp__inp {
+  width: 48%;
+}
+form .input__fields input {
+  font-size: 16px;
+  width: 100%;
+  height: 45px;
+  padding: 5px;
+  color: rgb(155, 155, 155);
+  background: rgb(4, 2, 27);
+  border: 2px solid white;
+}
+form .input__fields input:focus {
+  outline: 2px solid rgb(0, 198, 142);
+  color: aliceblue;
+  border: none;
+}
+form .action__btn {
+  width: 90%;
+  height: 15%;
+  font-size: 25px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: white;
+  background: rgb(0, 198, 142);
+}
+form .forgot_pass {
+  position: absolute;
+  top: 68%;
+  right: 5%;
+}
+form .forgot_pass a {
+  text-decoration: none;
+  color: rgb(0, 198, 142);
+  font-size: 12px;
+  transition: 0.5s;
+}
+form .forgot_pass a:hover {
+  color: aquamarine;
+}
+
+/*# sourceMappingURL=style.css.map */

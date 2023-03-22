@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>trello</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      font-family: "Tilt Neon", cursive;
+    }
+    .trello {
+      min-height: 100vh;
+      background: #eeeeee;
+      text-align: center;
+    }
+    .trello__wrapper {
+      display: flex;
+      justify-content: center;
+    }
+    #inp {
+      width: 30%;
+      height: 7vh;
+    }
+    #btn,
+    #addAuthorBtn {
+      background: #ff005d;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 5px;
+      font-weight: bold;
+    }
+    #btn:hover,
+    #addAuthorBtn:hover {
+      cursor: pointer;
+    }
+    .trello__item {
+      width: 20%;
+      padding-top: 15px;
+      border: 1px solid black;
+      font-size: 20px;
+    }
+    .trello__task {
+      text-align: start;
+      letter-spacing: 0.5px;
+      padding: 5px 10px;
+      font-size: 16px;
+    }
+    .task__name {
+      display: inline-block;
+      background: #fafafa;
+      padding: 5px;
+      margin-bottom: 15px;
+      font-weight: bold;
+      border: 1px solid black;
+      border-radius: 5px;
+    }
+    .closeBtn {
+      font-weight: 900;
+      margin: 0 5px;
+      background: rgb(138, 138, 138);
+      border: 1px solid black;
+      border-radius: 5px;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.5s;
+    }
+    .closeBtn:hover {
+      cursor: pointer;
+    }
+    .trello__task:hover .closeBtn,
+    .author:hover .closeBtn {
+      opacity: 1;
+      visibility: visible;
+    }
+    #sprint {
+      background: white;
+    }
+    #todo {
+      background: red;
+    }
+    #review {
+      background: yellow;
+    }
+    #done {
+      background: green;
+    }
+    #team {
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      font-size: 18px;
+      background: #fafafa;
+    }
+    #addAuthorBtn {
+      width: 100%;
+    }
+    #addAuthor {
+      padding: 5px 2px;
+    }
+  </style>
+  <body>
+    <div class="trello">
+      <input
+        type="text"
+        id="inp"
+        placeholder="What task would you like to add?"
+      />
+      <button id="btn">Add Task</button>
+      <div class="trello__wrapper">
+        <div class="trello__item" id="sprint">
+          <span class="task__name">Sprint</span>
+          <div class="trello__task" draggable="true">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam
+            nulla deleniti veniam excepturi voluptas? Quae cum earum blanditiis
+            asperiores omnis. <span class="closeBtn">×</span>
+          </div>
+        </div>
+        <div class="trello__item" id="todo">
+          <span class="task__name">To do</span>
+        </div>
+        <div class="trello__item" id="review">
+          <span class="task__name">Review</span>
+        </div>
+        <div class="trello__item" id="done">
+          <span class="task__name">Done</span>
+        </div>
+        <div id="team">
+          <span>Authors: </span>
+          <div id="teamAuthors"></div>
+          <input type="text" id="addAuthor" placeholder="type author's name" />
+          <button id="addAuthorBtn">Add</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      const polygons = document.querySelectorAll(".trello__item");
+      const task = document.querySelectorAll(".trello__task");
+      const sprint = document.querySelector("#sprint");
+      const inp = document.querySelector("#inp");
+      const btn = document.querySelector("#btn");
+      const teamAuthors = document.querySelector("#teamAuthors");
+      const authors = document.querySelectorAll(".author");
+      const addAuthorInp = document.querySelector("#addAuthor");
+      const addAuthorBtn = document.querySelector("#addAuthorBtn");
+      const closeBtn = document.querySelector(".closeBtn");
+      let draggableTask;
+      let draggableAuthor;
+
+      for (i = 0; i < task.length; i++) {
+        task[i].addEventListener("dragstart", startToDrag);
+      }
+
+      function startToDrag(e) {
+        draggableTask = e.target;
+      }
+
+      for (i = 0; i < polygons.length; i++) {
+        polygons[i].addEventListener("dragover", preventDef);
+        polygons[i].addEventListener("drop", dropTask);
+
+        function dropTask() {
+          this.appendChild(draggableTask);
+        }
+
+        function preventDef(e) {
+          e.preventDefault();
+        }
+      }
+
+      btn.addEventListener("click", addTask);
+      closeBtn.addEventListener("click", removeElement);
+
+      function removeElement() {
+        this.parentElement.remove();
+      }
+
+      function addTask() {
+        const newTask = document.createElement("div");
+        if (inp.value != "") {
+          newTask.setAttribute("draggable", "true");
+          newTask.classList.add("trello__task");
+          newTask.innerHTML = inp.value;
+          newTask.addEventListener("dragstart", startToDrag);
+          sprint.appendChild(newTask);
+          inp.value = "";
+          let span = createCloseBtn();
+          newTask.appendChild(span);
+        }
+      }
+
+      function createCloseBtn() {
+        let span = document.createElement("span");
+        span.classList.add("closeBtn");
+        span.innerText = "×";
+        span.addEventListener("click", removeElement);
+        return span;
+      }
+
+      addAuthorBtn.addEventListener("click", addAuthor);
+
+      function addAuthor() {
+        const newAuthor = document.createElement("div");
+        if (addAuthorInp.value != "") {
+          newAuthor.setAttribute("draggable", "true");
+          newAuthor.classList.add("author");
+          newAuthor.innerHTML = addAuthorInp.value;
+          newAuthor.addEventListener("dragstart", startToDragAuthor);
+          teamAuthors.appendChild(newAuthor);
+          addAuthorInp.value = "";
+          let span = createCloseBtn();
+          newAuthor.appendChild(span);
+        }
+      }
+
+      for (i = 0; i < authors.length; i++) {
+        authors[i].addEventListener("dragstart", startToDragAuthor);
+      }
+      function startToDragAuthor(e) {
+        draggableAuthor = e.target;
+      }
+      for (i = 0; i < task.length; i++) {
+        task[i].addEventListener("dragover", preventDef);
+        task[i].addEventListener("drop", dropAuthor);
+
+        function dropAuthor() {
+          this.appendChild(draggableAuthor);
+        }
+
+        function preventDef(e) {
+          e.preventDefault();
+        }
+      }
+    </script>
+  </body>
+</html>

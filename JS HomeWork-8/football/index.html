@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="fbfield">
+      <div class="polygon1">
+        <div class="gate1"></div>
+        <div class="gate1__score">
+          Team Left: <span class="gate1__scoreCounter"></span>
+        </div>
+      </div>
+      <img src="img/download.png" alt="" draggable="true" />
+      <div class="polygon2">
+        <div class="gate2"></div>
+        <div class="gate2__score">
+          Team Right: <span class="gate2__scoreCounter"></span>
+        </div>
+      </div>
+    </div>
+    <script>
+      const polygon1 = document.querySelector(".polygon1");
+      const polygon2 = document.querySelector(".polygon2");
+      const ball = document.querySelector("img");
+      const gate1Score = document.querySelector(".gate1__scoreCounter");
+      const gate2Score = document.querySelector(".gate2__scoreCounter");
+      let scoreCounter1 = 0;
+      let scoreCounter2 = 0;
+
+      polygon1.addEventListener("dragover", dragTo);
+      polygon2.addEventListener("dragover", dragTo);
+
+      function dragTo(e) {
+        e.preventDefault();
+      }
+
+      polygon1.addEventListener("drop", dropElement);
+      polygon2.addEventListener("drop", dropElement);
+
+      function dropElement(e) {
+        this.appendChild(ball);
+        const ballPosition = e.target.className;
+        switch (ballPosition) {
+          case "polygon1":
+            ball.style.top =
+              e.clientY -
+              polygon1.getBoundingClientRect().y -
+              ball.offsetHeight / 2 +
+              "px";
+            ball.style.left =
+              e.clientX -
+              polygon1.getBoundingClientRect().x -
+              ball.offsetWidth / 2 +
+              "px";
+            break;
+          case "polygon2":
+            ball.style.top =
+              e.clientY -
+              polygon2.getBoundingClientRect().y -
+              ball.offsetHeight / 2 +
+              "px";
+            ball.style.left =
+              e.clientX -
+              polygon2.getBoundingClientRect().x -
+              ball.offsetWidth / 2 +
+              "px";
+            break;
+          case "gate1":
+            ball.style.top =
+              e.clientY -
+              polygon1.getBoundingClientRect().y -
+              ball.offsetHeight / 2 +
+              "px";
+            ball.style.left =
+              e.clientX -
+              polygon1.getBoundingClientRect().x -
+              ball.offsetWidth / 2 +
+              "px";
+            gate1Score.innerHTML = ++scoreCounter1;
+            break;
+          case "gate2":
+            ball.style.top =
+              e.clientY -
+              polygon2.getBoundingClientRect().y -
+              ball.offsetHeight / 2 +
+              "px";
+            ball.style.left =
+              e.clientX -
+              polygon2.getBoundingClientRect().x -
+              ball.offsetWidth / 2 +
+              "px";
+            gate2Score.innerHTML = ++scoreCounter2;
+            break;
+        }
+      }
+    </script>
+  </body>
+</html>
