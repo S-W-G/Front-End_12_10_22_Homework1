@@ -1,0 +1,9 @@
+h1.title {
+   height: 15vh;
+   width: 100%;
+   background-color: black;
+   color: yellow;
+   text-align: center;
+   line-height: 15vh;
+   font-size: 40px;
+}
