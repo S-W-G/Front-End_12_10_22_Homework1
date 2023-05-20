@@ -7,14 +7,19 @@ body {
   position: relative;
   overflow: hidden;
 }
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 header {
   position: absolute;
   height: 12vh;
-  width: 100vw;
+  width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10vh;
+  margin-top: 50px;
   background-color: rgba(161, 157, 157, 0.5);
 }
 h1 {
@@ -23,8 +28,8 @@ h1 {
   font-size: 10vh;
 }
 .banner__body {
-  height: 60vh;
-  width: 100vw;
+  height: fit-content;
+  width: 80%;
   background: url(../img/4K-Train-Rail-Desktop-Wallpaper-For-PC.jpg);
   background-size: 100% 165%;
   background-repeat: no-repeat;
@@ -36,7 +41,7 @@ h1 {
 }
 .banner__item {
   padding: 1vh 1vw;
-  margin: 14.5% 1% 0;
+  margin: 14.5% 1% .5%;
   width: 20vw;
   height: 26vh;
   border-radius: 2%;
